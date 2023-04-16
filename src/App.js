@@ -1,5 +1,9 @@
 import React from "react";
 
+// *** Internal Imports ***
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
 // *** Music image ***
 import musicImage from "../src/resources/images/music.avif";
 
@@ -67,10 +71,7 @@ export default class App extends React.Component {
   render() {
     return (
       <section className="music-form w-100 text-center d-flex flex-column justify-content-center align-items-center m-auto w-100 gap-4 p-2">
-        <header>
-          <h1 className="fs-1">Music Master 🎵</h1>
-        </header>
-
+        <Header />
         <input
           className="form-control w-75 p-2 fs-5"
           onChange={this.handleArtistQuery}
@@ -84,7 +85,7 @@ export default class App extends React.Component {
         >
           Search
         </button>
-        <section className="image-container d-flex flex-column justify-content-center align-items-center  m-auto mt-4 w-90 p-3">
+        <section className="image-container d-flex flex-column justify-content-center align-items-center m-auto mt-4 w-90 p-3">
           <h2 className="fs-1 mb-5">
             {this.state.artistName === null
               ? ""
@@ -110,6 +111,7 @@ export default class App extends React.Component {
             </a>
           )}
         </section>
+        <Footer />
       </section>
     );
   }
