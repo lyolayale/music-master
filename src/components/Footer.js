@@ -7,18 +7,30 @@ export default function Footer() {
 
       <ul className="nav col-md-4 justify-content-end me-3">
         <li className="nav-item">
-          <a href="#" className="nav-link px-2 text-secondary">
-            Home
+          <a
+            href="https://mail.google.com/"
+            className="nav-link px-2 text-secondary"
+            target="_blank"
+          >
+            <i className="fa-solid fa-envelope fs-3"></i>
           </a>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link px-2 text-secondary">
-            Features
+          <a
+            href="https://www.linkedin.com/in/eric-mckee-dev"
+            className="nav-link px-2 text-secondary"
+            target="_blank"
+          >
+            <i className="fa-brands fa-linkedin fs-3"></i>
           </a>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link px-2 text-secondary">
-            Pricing
+          <a
+            href="https://lyolayale.github.io/portfolio/"
+            className="nav-link px-2 text-secondary"
+            target="_blank"
+          >
+            <i className="fa-brands fa-square-github fs-3 hover-opacity-25"></i>
           </a>
         </li>
       </ul>

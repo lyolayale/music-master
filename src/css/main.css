@@ -49,10 +49,18 @@ header {
   filter: brightness(1.4);
 }
 
-/* Music Form */
-
 /* Spotify Link */
 
 .spotify-url {
   margin-bottom: 5rem;
+}
+
+/* Links */
+
+i {
+  transition: 0.1s all linear;
+}
+
+i:hover {
+  color: whitesmoke;
 }
