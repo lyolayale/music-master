@@ -48,6 +48,8 @@ h6 {
 .image-container img {
   box-shadow: 0 10px 20px rgba(50, 50, 50, 0.8);
   filter: brightness(1.4);
+  width: 500px;
+  height: 375px;
 }
 
 /* Spotify Link */

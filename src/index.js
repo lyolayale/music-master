@@ -2,7 +2,7 @@ import ReactDOM from "react-dom/client";
 import React from "react";
 
 // Internal imports
-import App from "./App";
+import App from "./App.mjs";
 import "./css/normalize.css";
 import "./css/main.css";
 
