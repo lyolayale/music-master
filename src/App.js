@@ -2,6 +2,8 @@ import React from "react";
 
 // *** Internal Imports ***
 import Header from "./components/Header";
+import Search from "./components/Search";
+import Artist from "./components/Artist";
 import Footer from "./components/Footer";
 
 // *** Music image ***
@@ -15,12 +17,10 @@ export default class App extends React.Component {
   state = {
     artistQuery: "",
     artist: null,
-    artistImage: null,
-    spotifyUrl: null,
-    artistName: null,
+    isArtist: false,
   };
 
-  // *** Method Start ***
+  // *** Methods Start ***
   handleArtistQuery = e => {
     let { value } = e.target;
 
@@ -28,7 +28,6 @@ export default class App extends React.Component {
   };
 
   handleSearchArtist = () => {
-    // *** 1st fetch -> fetch artist ***
     fetch(`${API_ADDRESS}/artist/${this.state.artistQuery}`)
       .then(res => res.json())
       .then(res => {
@@ -36,18 +35,12 @@ export default class App extends React.Component {
         if (res.artists.total > 0) {
           // *** Destructure to simplify ***
           const artist = res.artists.items[0];
-          const image = artist.images[0].url;
-          const spotifyUrl = artist.external_urls.spotify;
-          const artistName = artist.name;
 
           console.log("Artist", artist);
 
           this.setState(prev => ({
             ...prev,
             artist: artist,
-            artistImage: image,
-            spotifyUrl,
-            artistName,
           }));
         }
       })
@@ -66,51 +59,29 @@ export default class App extends React.Component {
     e.target.src = musicImage;
   };
 
-  // *** Method End ***
+  // *** Methods End ***
 
   render() {
     return (
       <section className="music-form w-100 text-center d-flex flex-column justify-content-center align-items-center m-auto w-100 gap-4 p-2">
         <Header />
-        <input
-          className="form-control w-75 p-2 fs-5"
-          onChange={this.handleArtistQuery}
-          onKeyDown={this.handleKeyDown}
-          type="text"
-          placeholder="Search for an Artist"
+        <Search
+          handleArtistQuery={this.handleArtistQuery}
+          handleKeyDown={this.handleKeyDown}
+          handleSearchArtist={this.handleSearchArtist}
         />
-        <button
-          onClick={this.handleSearchArtist}
-          className="btn btn-dark w-75 p-2 shadow-lg fs-5"
-        >
-          Search
-        </button>
-        <section className="image-container d-flex flex-column justify-content-center align-items-center m-auto mt-4 w-90 p-3">
-          <h2 className="fs-1 mb-5">
-            {this.state.artistName === null
-              ? ""
-              : "🎤 " + this.state.artistName}
-          </h2>
+        {this.state.artist === null ? (
           <img
-            className="rounded object-fit-cover m-auto w-100"
-            src={this.state.artistImage ? this.state.artistImage : musicImage}
-            alt="Artist, cover image"
-            onError={this.handleImageError}
+            className="rounded shadow-lg"
+            src={musicImage}
+            alt="Placeholder image, concert"
           />
-        </section>
-        <section className="spotify-url pb-4">
-          {this.state.spotifyUrl === null ? (
-            ""
-          ) : (
-            <a
-              className="btn btn-dark p-2 shadow-lg"
-              href={this.state.spotifyUrl}
-              target="_blank"
-            >
-              Check out {this.state.artistName}'s popular tracks at Spotify
-            </a>
-          )}
-        </section>
+        ) : (
+          <Artist
+            artist={this.state.artist}
+            handleImageError={this.handleImageError}
+          />
+        )}
         <Footer />
       </section>
     );
