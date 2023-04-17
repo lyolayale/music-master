@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/music-master/static/css/main.0c6d9ae6.css",
-    "main.js": "/music-master/static/js/main.3a5e1470.js",
+    "main.css": "/music-master/static/css/main.0c154f7e.css",
+    "main.js": "/music-master/static/js/main.036a35f7.js",
     "static/media/music.avif": "/music-master/static/media/music.5688a11643e9d1cec193.avif",
     "index.html": "/music-master/index.html",
-    "main.0c6d9ae6.css.map": "/music-master/static/css/main.0c6d9ae6.css.map",
-    "main.3a5e1470.js.map": "/music-master/static/js/main.3a5e1470.js.map"
+    "main.0c154f7e.css.map": "/music-master/static/css/main.0c154f7e.css.map",
+    "main.036a35f7.js.map": "/music-master/static/js/main.036a35f7.js.map"
   },
   "entrypoints": [
-    "static/css/main.0c6d9ae6.css",
-    "static/js/main.3a5e1470.js"
+    "static/css/main.0c154f7e.css",
+    "static/js/main.036a35f7.js"
   ]
 }
